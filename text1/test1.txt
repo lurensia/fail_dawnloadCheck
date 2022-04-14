@@ -1,0 +1,565 @@
+
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6260000&_
+//uri not absolute 52트...(1트 부터 세어봤다, 가망 없어서 52트 이후 코드 삭제)
+
+java.lang.IllegalArgumentException: URI is not absolute
+        at java.base/java.net.URL.fromURI(URL.java:674)
+        at java.base/java.net.URI.toURL(URI.java:1116)
+        at org.springframework.http.client.SimpleClientHttpRequestFactory.createRequest(SimpleClientHttpRequestFactory.java:145)
+        at org.springframework.http.client.support.HttpAccessor.createRequest(HttpAccessor.java:124)
+        at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:772)
+        at org.springframework.web.client.RestTemplate.execute(RestTemplate.java:751)
+        at org.springframework.web.client.RestTemplate.getForObject(RestTemplate.java:352)
+        at site.metacoding.animalprojectbackend.service.api.TestService.테스트(TestService.java:60)
+        at site.metacoding.animalprojectbackend.service.api.TestService$$FastClassBySpringCGLIB$$7bb32c37.invoke(<generated>)
+        at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+        at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:783)
+        at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)  
+        at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:753)      
+        at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:123)
+        at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:388)
+        at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119) 
+        at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)  
+        at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:753)      
+        at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:698)        at site.metacoding.animalprojectbackend.service.api.TestService$$EnhancerBySpringCGLIB$$eb2844bb.테스트(<generated>)
+        at site.metacoding.animalprojectbackend.web.animalapi.SigunguController.test(SigunguController.java:164)      
+        at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+        at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+        at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)   
+        at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+        at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)    
+        at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150)
+        at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)
+        at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+        at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)
+        at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+        at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067)
+        at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963)
+        at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+        at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+        at javax.servlet.http.HttpServlet.service(HttpServlet.java:655)
+        at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+        at javax.servlet.http.HttpServlet.service(HttpServlet.java:764)
+        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+        at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+        at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)        
+        at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+        at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+        at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+        at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)  
+        at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+        at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
+        at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+        at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+        at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+        at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+        at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+        at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360)
+        at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+        at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+        at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:889)
+        at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1743)
+        at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+        at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+        at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+        at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+        at java.base/java.lang.Thread.run(Thread.java:834)
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6260000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6260000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6260000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6260000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6260000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6260000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6260000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6260000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6260000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+      
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6260000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6260000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6260000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6260000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6260000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6260000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6260000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6260000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_
+
+ResponseDto(response=Response(header=Header(reqNo=1504503, resultCode=00, resultMsg=NORMAL SERVICE.), body=Body(items=Items(item=[Item(uprCd=6260000
+, orgCd=3360000, orgdownNm=강서구), Item(uprCd=6260000
+, orgCd=3350000, orgdownNm=금정구), Item(uprCd=6260000
+, orgCd=3400000, orgdownNm=기장군), Item(uprCd=6260000
+, orgCd=3310000, orgdownNm=남구), Item(uprCd=6260000
+, orgCd=3270000, orgdownNm=동구), Item(uprCd=6260000
+, orgCd=3300000, orgdownNm=동래구), Item(uprCd=6260000
+, orgCd=3290000, orgdownNm=부산진구), Item(uprCd=6260000
+, orgCd=3320000, orgdownNm=북구), Item(uprCd=6260000
+, orgCd=3390000, orgdownNm=사상구), Item(uprCd=6260000
+, orgCd=3340000, orgdownNm=사하구), Item(uprCd=6260000
+, orgCd=3260000, orgdownNm=서구), Item(uprCd=6260000
+, orgCd=3380000, orgdownNm=수영구), Item(uprCd=6260000
+, orgCd=3370000, orgdownNm=연제구), 
+Item(uprCd=6260000
+, orgCd=3280000, orgdownNm=영도구), Item(uprCd=6260000
+, orgCd=3250000, orgdownNm=중구), Item(uprCd=6260000
+, orgCd=3330000, orgdownNm=해운대구)]))))
+[ResponseDto(response=Response(header=Header(reqNo=1504503, resultCode=00, resultMsg=NORMAL SERVICE.), body=Body(items=Items(item=[Item(uprCd=6260000
+, orgCd=3360000, orgdownNm=강서구), Item(uprCd=6260000
+, orgCd=3350000, orgdownNm=금정구
+), Item(uprCd=6260000
+, orgCd=3400000, orgdownNm=기장군), Item(uprCd=6260000
+, orgCd=3310000, orgdownNm=남구), Item(uprCd=6260000
+, orgCd=3270000, orgdownNm=동구), Item(uprCd=6260000
+, orgCd=3300000, orgdownNm=동래구), Item(uprCd=6260000
+, orgCd=3290000, orgdownNm=부산진구), Item(uprCd=6260000
+, orgCd=3320000, orgdownNm=북구), Item(uprCd=6260000
+, orgCd=3390000, orgdownNm=사상구), Item(uprCd=6260000
+, orgCd=3340000, orgdownNm=사하구), Item(uprCd=6260000
+, orgCd=3260000, orgdownNm=서구), Item(uprCd=6260000
+, orgCd=3380000, orgdownNm=수영구), Item(uprCd=6260000
+, orgCd=3370000, orgdownNm=연제구), Item(uprCd=6260000
+, orgCd=3280000, orgdownNm=영도구), Item(uprCd=6260000
+, orgCd=3250000, orgdownNm=중구), Item(uprCd=6260000
+, orgCd=3330000, orgdownNm=해운대구)])))), ResponseDto(response=Response(header=Header(reqNo=1504503, resultCode=00, resultMsg=NORMAL SERVICE.), body=Body(items=Items(item=[Item(uprCd=6260000
+, orgCd=3360000, orgdownNm=강서구), Item(uprCd=6260000
+, orgCd=3350000, orgdownNm=금정구), Item(uprCd=6260000
+, orgCd=3400000, orgdownNm=기장군), Item(uprCd=6260000
+, orgCd=3310000, orgdownNm=남구), Item(uprCd=6260000
+, orgCd=3270000, orgdownNm=동구), Item(uprCd=6260000
+, orgCd=3300000, orgdownNm=동래구), Item(uprCd=6260000
+, orgCd=3290000, orgdownNm=부산진구), Item(uprCd=6260000
+, orgCd=3320000, orgdownNm=북구), Item(uprCd=6260000
+, orgCd=3390000, orgdownNm=사상구), Item(uprCd=6260000
+, orgCd=3340000, orgdownNm= 
+사하구), Item(uprCd=6260000
+, orgCd=3260000, orgdownNm=서구), Item(uprCd=6260000
+, orgCd=3380000, orgdownNm=수영구), Item(uprCd=6260000
+, orgCd=3370000, orgdownNm=연제구), Item(uprCd=6260000
+, orgCd=3280000, orgdownNm=영도구), Item(uprCd=6260000
+, orgCd=3250000, orgdownNm=중구), Item(uprCd=6260000
+, orgCd=3330000, orgdownNm=해운대구)])))), ResponseDto(response=Response(header=Header(reqNo=1504503, resultCode=00, resultMsg=NORMAL SERVICE.), body=Body(items=Items(item=[Item(uprCd=6260000
+, orgCd=3360000, orgdownNm=강서구), Item(uprCd=6260000
+, orgCd=3350000, orgdownNm=금정구), Item(uprCd=6260000
+, orgCd=3400000, orgdownNm=기장군), Item(uprCd=6260000
+, orgCd=3310000, orgdownNm=남구), Item(uprCd=6260000
+, orgCd=3270000, orgdownNm=동구), Item(uprCd=6260000
+, orgCd=3300000, orgdownNm=동래구), Item(uprCd=6260000
+, orgCd=3290000, orgdownNm=부산진구), Item(uprCd=6260000
+, orgCd=3320000, orgdownNm=북구), Item(uprCd=6260000
+, orgCd=3390000, orgdownNm=사상 
+구), Item(uprCd=6260000
+, orgCd=3340000, orgdownNm=사하구), Item(uprCd=6260000
+, orgCd=3260000, orgdownNm=서구), Item(uprCd=6260000
+, orgCd=3380000, orgdownNm=수영구), Item(uprCd=6260000
+, orgCd=3370000, orgdownNm=연제구), Item(uprCd=6260000
+, orgCd=3280000, orgdownNm=영도구), Item(uprCd=6260000
+, orgCd=3250000, orgdownNm=중구), Item(uprCd=6260000
+, orgCd=3330000, orgdownNm=해운대구)])))), ResponseDto(response=Response(header=Header(reqNo=1504503, resultCode=00, resultMsg=NORMAL SERVICE.), body=Body(items=Items(item=[Item(uprCd=6260000
+, orgCd=3360000, orgdownNm=강서구), Item(uprCd=6260000
+, 
+orgCd=3350000, orgdownNm=금정구), Item(uprCd=6260000
+, orgCd=3400000, orgdownNm=기장군), Item(uprCd=6260000
+, orgCd=3310000, orgdownNm=남구), Item(uprCd=6260000
+, orgCd=3270000, orgdownNm=동구), Item(uprCd=6260000
+, orgCd=3300000, orgdownNm=동래구), Item(uprCd=6260000
+, orgCd=3290000, orgdownNm=부산진구), Item(uprCd=6260000
+, orgCd=3320000, orgdownNm=북구), 
+Item(uprCd=6260000
+, orgCd=3390000, orgdownNm=사상구), Item(uprCd=6260000
+, orgCd=3340000, orgdownNm=사하구), Item(uprCd=6260000
+, orgCd=3260000, orgdownNm=서구), Item(uprCd=6260000
+, orgCd=3380000, orgdownNm=수영구), Item(uprCd=6260000
+, orgCd=3370000, orgdownNm=연제구), Item(uprCd=6260000
+, orgCd=3280000, orgdownNm=영도구), Item(uprCd=6260000
+, orgCd=3250000, orgdownNm=중구), Item(uprCd=6260000
+, orgCd=3330000, orgdownNm=해운대구)])))), ResponseDto(response=Response(header=Header(reqNo=1504503, resultCode=00, resultMsg=NORMAL SERVICE.), body=Body(items=Items(item=[Item(uprCd=6260000
+, orgCd=3360000, orgdownNm=강서구), Item(uprCd=6260000
+, orgCd=3350000, orgdownNm=금정구), Item(uprCd=6260000
+, orgCd=3400000, 
+orgdownNm=기장군), Item(uprCd=6260000
+, orgCd=3310000, orgdownNm=남구), Item(uprCd=6260000
+, orgCd=3270000, orgdownNm=동
+구), Item(uprCd=6260000
+, orgCd=3300000, orgdownNm=동래구), Item(uprCd=6260000
+, orgCd=3290000, orgdownNm=부산진구), Item(uprCd=6260000
+, orgCd=3320000, orgdownNm=북구), Item(uprCd=6260000
+, orgCd=3390000, orgdownNm=사상구), Item(uprCd=6260000
+, orgCd=3340000, orgdownNm=사하구), Item(uprCd=6260000
+, orgCd=3260000, orgdownNm=서구), Item(uprCd=6260000
+, orgCd=3380000, orgdownNm=수영구), Item(uprCd=6260000
+, orgCd=3370000, orgdownNm=연제구), Item(uprCd=6260000
+, orgCd=3280000, orgdownNm=영도구), Item(uprCd=6260000
+, orgCd=3250000, orgdownNm=중구), Item(uprCd=6260000
+, orgCd=3330000, orgdownNm=해운
+대구)])))), ResponseDto(response=Response(header=Header(reqNo=1504503, resultCode=00, resultMsg=NORMAL SERVICE.), body=Body(items=Items(item=[Item(uprCd=6260000
+, orgCd=3360000, orgdownNm=강서구), Item(uprCd=6260000
+, orgCd=3350000, orgdownNm=금정구), Item(uprCd=6260000
+, orgCd=3400000, orgdownNm=기장군), Item(uprCd=6260000
+, orgCd=3310000, orgdownNm=남구), Item(uprCd=6260000
+, orgCd=3270000, orgdownNm=동구), Item(uprCd=6260000
+, orgCd=3300000, orgdownNm=동래구), Item(uprCd=6260000
+, orgCd=3290000, orgdownNm=부산진구), Item(uprCd=6260000
+, orgCd=3320000, orgdownNm=북구), Item(uprCd=6260000
+, 
+orgCd=3390000, orgdownNm=사상구), Item(uprCd=6260000
+, orgCd=3340000, orgdownNm=사하구), Item(uprCd=6260000
+, orgCd=3260000, orgdownNm=서구), Item(uprCd=6260000
+, orgCd=3380000, orgdownNm=수영구), Item(uprCd=6260000
+, orgCd=3370000, orgdownNm=연제구), Item(uprCd=6260000
+, orgCd=3280000, orgdownNm=영도구), Item(uprCd=6260000
+, orgCd=3250000, orgdownNm=중구), 
+Item(uprCd=6260000
+, orgCd=3330000, orgdownNm=해운대구)])))), ResponseDto(response=Response(header=Header(reqNo=1504503, resultCode=00, resultMsg=NORMAL SERVICE.), body=Body(items=Items(item=[Item(uprCd=6260000
+, orgCd=3360000, orgdownNm=강서구), Item(uprCd=6260000
+, orgCd=3350000, orgdownNm=금정구), Item(uprCd=6260000
+, orgCd=3400000, orgdownNm=기장군), Item(uprCd=6260000
+, orgCd=3310000, orgdownNm=남구), Item(uprCd=6260000
+, orgCd=3270000, orgdownNm=동구), Item(uprCd=6260000
+, orgCd=3300000, orgdownNm=동래구), Item(uprCd=6260000
+, orgCd=3290000, orgdownNm=부산진구), Item(uprCd=6260000
+, orgCd=3320000, orgdownNm=북구), Item(uprCd=6260000
+, orgCd=3390000, orgdownNm=사상구), Item(uprCd=6260000
+, orgCd=3340000, 
+orgdownNm=사하구), Item(uprCd=6260000
+, orgCd=3260000, orgdownNm=서구), Item(uprCd=6260000
+, orgCd=3380000, orgdownNm=수
+영구), Item(uprCd=6260000
+, orgCd=3370000, orgdownNm=연제구), Item(uprCd=6260000
+, orgCd=3280000, orgdownNm=영도구), Item(uprCd=6260000
+, orgCd=3250000, orgdownNm=중구), Item(uprCd=6260000
+, orgCd=3330000, orgdownNm=해운대구)])))), ResponseDto(response=Response(header=Header(reqNo=1504503, resultCode=00, resultMsg=NORMAL SERVICE.), body=Body(items=Items(item=[Item(uprCd=6260000
+, orgCd=3360000, orgdownNm=강서구), Item(uprCd=6260000
+, orgCd=3350000, orgdownNm=금정구), Item(uprCd=6260000
+, orgCd=3400000, orgdownNm=기장군), Item(uprCd=6260000
+, orgCd=3310000, orgdownNm=남구), Item(uprCd=6260000
+, orgCd=3270000, orgdownNm=동구), Item(uprCd=6260000
+, orgCd=3300000, orgdownNm=동래구), Item(uprCd=6260000
+, orgCd=3290000, orgdownNm=부산진구), Item(uprCd=6260000
+, orgCd=3320000, orgdownNm=북구), Item(uprCd=6260000
+, orgCd=3390000, orgdownNm=사상구), Item(uprCd=6260000
+, orgCd=3340000, orgdownNm=사하구), Item(uprCd=6260000
+, orgCd=3260000, orgdownNm=서구), Item(uprCd=6260000
+, orgCd=3380000, orgdownNm=수영구), Item(uprCd=6260000
+, orgCd=3370000, orgdownNm=연제구), Item(uprCd=6260000
+, orgCd=3280000, orgdownNm=영도구), Item(uprCd=6260000
+, orgCd=3250000, orgdownNm=중구), Item(uprCd=6260000
+, 
+orgCd=3330000, orgdownNm=해운대구)])))), ResponseDto(response=Response(header=Header(reqNo=1504503, resultCode=00, resultMsg=NORMAL SERVICE.), body=Body(items=Items(item=[Item(uprCd=6260000
+, orgCd=3360000, orgdownNm=강서구), Item(uprCd=6260000
+, orgCd=3350000, orgdownNm=금정구), Item(uprCd=6260000
+, orgCd=3400000, orgdownNm=기장군), Item(uprCd=6260000
+, orgCd=3310000, orgdownNm=남구), Item(uprCd=6260000
+, orgCd=3270000, orgdownNm=동구), Item(uprCd=6260000
+, orgCd=3300000, 
+orgdownNm=동래구), Item(uprCd=6260000
+, orgCd=3290000, orgdownNm=부산진구), Item(uprCd=6260000
+, orgCd=3320000, orgdownNm=북구), Item(uprCd=6260000
+, orgCd=3390000, orgdownNm=사상구), Item(uprCd=6260000
+, orgCd=3340000, orgdownNm=사하구), Item(uprCd=6260000
+, orgCd=3260000, orgdownNm=서구), Item(uprCd=6260000
+, orgCd=3380000, orgdownNm=수영구), Item(uprCd=6260000
+, orgCd=3370000, orgdownNm=연제구), Item(uprCd=6260000
+, orgCd=3280000, orgdownNm=영도구), Item(uprCd=6260000
+, orgCd=3250000, orgdownNm=중구), Item(uprCd=6260000
+, orgCd=3330000, orgdownNm=해운대구)])))), ResponseDto(response=Response(header=Header(reqNo=1504503, resultCode=00, resultMsg=NORMAL SERVICE.), body=Body(items=Items(item=[Item(uprCd=6260000
+, orgCd=3360000, orgdownNm=강서구), Item(uprCd=6260000
+, orgCd=3350000, orgdownNm=금정구), Item(uprCd=6260000
+, orgCd=3400000, orgdownNm=기장군), Item(uprCd=6260000
+, orgCd=3310000, orgdownNm=남구), Item(uprCd=6260000
+, orgCd=3270000, orgdownNm=동구), Item(uprCd=6260000
+, orgCd=3300000, orgdownNm=동래구), Item(uprCd=6260000
+, orgCd=3290000, orgdownNm=부산 
+진구), Item(uprCd=6260000
+, orgCd=3320000, orgdownNm=북구), Item(uprCd=6260000
+, orgCd=3390000, orgdownNm=사상구), Item(uprCd=6260000
+, orgCd=3340000, orgdownNm=사하구), Item(uprCd=6260000
+, orgCd=3260000, orgdownNm=서구), Item(uprCd=6260000
+, orgCd=3380000, orgdownNm=수영구), Item(uprCd=6260000
+, orgCd=3370000, orgdownNm=연제구), Item(uprCd=6260000
+, orgCd=3280000, orgdownNm=영도구), Item(uprCd=6260000
+, orgCd=3250000, orgdownNm=중구), Item(uprCd=6260000
+, orgCd=3330000, orgdownNm=해운대구)])))), ResponseDto(response=Response(header=Header(reqNo=1504503, resultCode=00, resultMsg=NORMAL SERVICE.), body=Body(items=Items(item=[Item(uprCd=6260000
+, orgCd=3360000, orgdownNm=강서구), Item(uprCd=6260000
+, orgCd=3350000, orgdownNm=금정구), Item(uprCd=6260000
+, orgCd=3400000, orgdownNm=기장군), Item(uprCd=6260000
+, orgCd=3310000, orgdownNm=남구), Item(uprCd=6260000
+, orgCd=3270000, orgdownNm=동구), Item(uprCd=6260000
+, orgCd=3300000, orgdownNm=동래구), 
+Item(uprCd=6260000
+, orgCd=3290000, orgdownNm=부산진구), Item(uprCd=6260000
+, orgCd=3320000, orgdownNm=북구), Item(uprCd=6260000
+, orgCd=3390000, orgdownNm=사상구), Item(uprCd=6260000
+, orgCd=3340000, orgdownNm=사하구), Item(uprCd=6260000
+, 
+orgCd=3260000, orgdownNm=서구), Item(uprCd=6260000
+, orgCd=3380000, orgdownNm=수영구), Item(uprCd=6260000
+, orgCd=3370000, orgdownNm=연제구), Item(uprCd=6260000
+, orgCd=3280000, orgdownNm=영도구), Item(uprCd=6260000
+, orgCd=3250000, orgdownNm=중구), Item(uprCd=6260000
+, orgCd=3330000, orgdownNm=해운대구)])))), ResponseDto(response=Response(header=Header(reqNo=1504503, resultCode=00, resultMsg=NORMAL SERVICE.), body=Body(items=Items(item=[Item(uprCd=6260000
+, orgCd=3360000, 
+orgdownNm=강서구), Item(uprCd=6260000
+, orgCd=3350000, orgdownNm=금정구), Item(uprCd=6260000
+, orgCd=3400000, orgdownNm=기장군), Item(uprCd=6260000
+, orgCd=3310000, orgdownNm=남구), Item(uprCd=6260000
+, orgCd=3270000, orgdownNm=동구), Item(uprCd=6260000
+, orgCd=3300000, orgdownNm=동래구), Item(uprCd=6260000
+, orgCd=3290000, orgdownNm=부산진구), Item(uprCd=6260000
+, orgCd=3320000, orgdownNm=북구), Item(uprCd=6260000
+, orgCd=3390000, orgdownNm=사상구), Item(uprCd=6260000
+, orgCd=3340000, orgdownNm=사하구), Item(uprCd=6260000
+, orgCd=3260000, orgdownNm=서구), Item(uprCd=6260000
+, orgCd=3380000, orgdownNm=수영구), Item(uprCd=6260000
+, orgCd=3370000, orgdownNm=연제구), Item(uprCd=6260000
+, orgCd=3280000, orgdownNm=영
+도구), Item(uprCd=6260000
+, orgCd=3250000, orgdownNm=중구), Item(uprCd=6260000
+, orgCd=3330000, orgdownNm=해운대구)])))), ResponseDto(response=Response(header=Header(reqNo=1504503, resultCode=00, resultMsg=NORMAL SERVICE.), body=Body(items=Items(item=[Item(uprCd=6260000
+, orgCd=3360000, orgdownNm=강서구), Item(uprCd=6260000
+, orgCd=3350000, orgdownNm=금정 
+구), Item(uprCd=6260000
+, orgCd=3400000, orgdownNm=기장군), Item(uprCd=6260000
+, orgCd=3310000, orgdownNm=남구), Item(uprCd=6260000
+, orgCd=3270000, orgdownNm=동구), Item(uprCd=6260000
+, orgCd=3300000, orgdownNm=동래구), Item(uprCd=6260000
+, orgCd=3290000, orgdownNm=부산진구), Item(uprCd=6260000
+, orgCd=3320000, orgdownNm=북구), Item(uprCd=6260000
+, orgCd=3390000, orgdownNm=사상구), Item(uprCd=6260000
+, orgCd=3340000, orgdownNm=사하구), Item(uprCd=6260000
+, orgCd=3260000, orgdownNm=서구), Item(uprCd=6260000
+, orgCd=3380000, orgdownNm=수영구), Item(uprCd=6260000
+, orgCd=3370000, orgdownNm=연제구
+), Item(uprCd=6260000
+, orgCd=3280000, orgdownNm=영도구), Item(uprCd=6260000
+, orgCd=3250000, orgdownNm=중구), Item(uprCd=6260000
+, orgCd=3330000, orgdownNm=해운대구)])))), ResponseDto(response=Response(header=Header(reqNo=1504503, resultCode=00, resultMsg=NORMAL SERVICE.), body=Body(items=Items(item=[Item(uprCd=6260000
+, orgCd=3360000, orgdownNm=강서구), 
+Item(uprCd=6260000
+, orgCd=3350000, orgdownNm=금정구), Item(uprCd=6260000
+, orgCd=3400000, orgdownNm=기장군), Item(uprCd=6260000
+, orgCd=3310000, orgdownNm=남구), Item(uprCd=6260000
+, orgCd=3270000, orgdownNm=동구), Item(uprCd=6260000
+, orgCd=3300000, orgdownNm=동래구), Item(uprCd=6260000
+, orgCd=3290000, orgdownNm=부산진구), Item(uprCd=6260000
+, orgCd=3320000, orgdownNm=북구), Item(uprCd=6260000
+, orgCd=3390000, orgdownNm=사상구), Item(uprCd=6260000
+, orgCd=3340000, orgdownNm=사하구), Item(uprCd=6260000
+, orgCd=3260000, orgdownNm=서구), Item(uprCd=6260000
+, orgCd=3380000, orgdownNm=수영구), Item(uprCd=6260000
+, orgCd=3370000, orgdownNm=연제구), Item(uprCd=6260000
+, orgCd=3280000, orgdownNm=영도구), Item(uprCd=6260000
+, orgCd=3250000, orgdownNm=중구), Item(uprCd=6260000
+, orgCd=3330000, orgdownNm=해운대구)])))), ResponseDto(response=Response(header=Header(reqNo=1504503, resultCode=00, resultMsg=NORMAL SERVICE.), body=Body(items=Items(item=[Item(uprCd=6260000
+, orgCd=3360000, orgdownNm=강서구), Item(uprCd=6260000
+, orgCd=3350000, orgdownNm=금정구), Item(uprCd=6260000
+, orgCd=3400000, orgdownNm=기장군), Item(uprCd=6260000
+, orgCd=3310000, orgdownNm=남구), Item(uprCd=6260000
+, orgCd=3270000, orgdownNm=동구), Item(uprCd=6260000
+, orgCd=3300000, orgdownNm=동래구), Item(uprCd=6260000
+, orgCd=3290000, orgdownNm=부산진구), Item(uprCd=6260000
+, orgCd=3320000, orgdownNm=북구), Item(uprCd=6260000
+, orgCd=3390000, orgdownNm=사상
+구), Item(uprCd=6260000
+, orgCd=3340000, orgdownNm=사하구), Item(uprCd=6260000
+, orgCd=3260000, orgdownNm=서구), Item(uprCd=6260000
+, orgCd=3380000, orgdownNm=수영구), Item(uprCd=6260000
+, orgCd=3370000, orgdownNm=연제구), Item(uprCd=6260000
+, orgCd=3280000, orgdownNm=영도구), Item(uprCd=6260000
+, orgCd=3250000, orgdownNm=중구), Item(uprCd=6260000
+, orgCd=3330000, orgdownNm=해운대구)])))), ResponseDto(response=Response(header=Header(reqNo=1504503, resultCode=00, resultMsg=NORMAL SERVICE.), body=Body(items=Items(item=[Item(uprCd=6260000
+, orgCd=3360000, orgdownNm=강서구), Item(uprCd=6260000
+, 
+orgCd=3350000, orgdownNm=금정구), Item(uprCd=6260000
+, orgCd=3400000, orgdownNm=기장군), Item(uprCd=6260000
+, orgCd=3310000, orgdownNm=남구), Item(uprCd=6260000
+, orgCd=3270000, orgdownNm=동구), Item(uprCd=6260000
+, orgCd=3300000, orgdownNm=동래구), Item(uprCd=6260000
+, orgCd=3290000, orgdownNm=부산진구), Item(uprCd=6260000
+, orgCd=3320000, orgdownNm=북구), 
+Item(uprCd=6260000
+, orgCd=3390000, orgdownNm=사상구), Item(uprCd=6260000
+, orgCd=3340000, orgdownNm=사하구), Item(uprCd=6260000
+, orgCd=3260000, orgdownNm=서구), Item(uprCd=6260000
+, orgCd=3380000, orgdownNm=수영구), Item(uprCd=6260000
+, orgCd=3370000, orgdownNm=연제구), Item(uprCd=6260000
+, orgCd=3280000, orgdownNm=영도구), Item(uprCd=6260000
+, orgCd=3250000, orgdownNm=중구), Item(uprCd=6260000
+, orgCd=3330000, orgdownNm=해운대구)]))))]
+[SigunguDto(id=0, uprCd=3360000, orgCd=강서구, orgdownNm=6260000), SigunguDto(id=1, uprCd=3350000, orgCd=금정구, orgdownNm=6260000), SigunguDto(id=2, uprCd=3400000, orgCd=기장군, orgdownNm=6260000), SigunguDto(id=3, uprCd=3310000, orgCd=남구, orgdownNm=6260000), SigunguDto(id=4, uprCd=3270000, orgCd=동구, orgdownNm=6260000), SigunguDto(id=5, uprCd=3300000, orgCd=동래구, orgdownNm=6260000), SigunguDto(id=6, uprCd=3290000, orgCd=부산진구, orgdownNm=6260000), SigunguDto(id=7, uprCd=3320000, orgCd=북구, orgdownNm=6260000), SigunguDto(id=8, uprCd=3390000, orgCd=사상구, orgdownNm=6260000), SigunguDto(id=9, uprCd=3340000, orgCd=사하구, orgdownNm=6260000), SigunguDto(id=10, uprCd=3260000, orgCd=서구, orgdownNm=6260000), SigunguDto(id=11, uprCd=3380000, orgCd=수영구, orgdownNm=6260000), SigunguDto(id=12, uprCd=3370000, orgCd=연제구, orgdownNm=6260000), SigunguDto(id=13, uprCd=3280000, orgCd=영도구, orgdownNm=6260000), SigunguDto(id=14, uprCd=3250000, orgCd=중구, orgdownNm=6260000), SigunguDto(id=15, uprCd=3330000, orgCd=해운대구, orgdownNm=6260000)]
+
+

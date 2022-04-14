@@ -1,0 +1,475 @@
+package site.metacoding.animalprojectbackend.service.api;
+
+import java.net.URI;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.client.RestTemplate;
+
+import lombok.RequiredArgsConstructor;
+import site.metacoding.animalprojectbackend.domain.sido.SidoDto;
+import site.metacoding.animalprojectbackend.domain.sido.SidoRepository;
+import site.metacoding.animalprojectbackend.domain.sigungu.ResponseDto;
+import site.metacoding.animalprojectbackend.domain.sigungu.SigunguDto;
+import site.metacoding.animalprojectbackend.domain.sigungu.SigunguRepository;
+
+@RequiredArgsConstructor
+@Service
+public class TestService {
+
+    private final SidoRepository sidoRepository;
+    private final SigunguRepository sigunguRepository;
+
+    @Transactional
+    public List<SigunguDto> 테스트(SigunguDto sigunguDto) {
+
+        List<ResponseDto> sigunguList = new ArrayList<>();
+        List<SigunguDto> lists = new ArrayList<>();
+        List<SidoDto> sidoRepo = sidoRepository.findCd(); // 시도 코드만 찾기
+        // List<SidoDto> sidoEntity = sidoRepository.findAll(); // 시도 모두 찾기
+        // Set<SidoDto> sidoHash = sidoRepository.findCdHash();
+
+        // 서비스키
+        String key = "jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D";
+
+        // 시도 코드에 따른 변수들
+        // String gwangju = "6290000";
+        // String busan = "6260000";
+
+        // for (int i = 0; i < sidoEntity.size(); i++) { // 시도 사이즈만큼 반복
+        try {
+
+            for (int p = 0; p < sidoRepo.size(); p++) {
+                StringBuffer urisb = new StringBuffer();
+                urisb.append("http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?");
+                urisb.append("serviceKey=" + key);
+                urisb.append("&upr_cd=");
+                urisb.append(sidoRepo.get(p).getOrgCd());
+                urisb.append("&_type=JSON");
+
+                System.out.println(urisb.toString());
+                RestTemplate restTemplate = new RestTemplate();
+                URI uri = new URI(urisb.toString());
+                ResponseDto response = new ResponseDto();
+                response = restTemplate.getForObject(uri, ResponseDto.class);
+                System.out.println(response);
+                for (int k = 0; k < response.getResponse().getBody().getItems().getItem().size(); k++) {
+                    sigunguList.add(response);
+
+                }
+            }
+
+            System.out.println(sigunguList);
+
+            for (int o = 0; o < sigunguList.size(); o++) {
+                SigunguDto result = new SigunguDto(o,
+                        sigunguList.get(o).getResponse().getBody().getItems().getItem().get(o).getOrgCd(),
+                        sigunguList.get(o).getResponse().getBody().getItems().getItem().get(o).getOrgdownNm(),
+                        sigunguList.get(o).getResponse().getBody().getItems().getItem().get(o).getUprCd());
+
+                lists.add(result);
+            }
+
+            System.out.println(lists);
+
+            List<SigunguDto> sigunguEntity = sigunguRepository.saveAll(lists);
+
+            return sigunguEntity;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        // }
+
+        return null;
+    }
+}
+위에는 코드
+(반복도중 세종특별 자치시 구간에서 오류발생(값이 아예 없어서), 세종특별 자치시를 db에서 17번으로 변경==기존에는 5번위치에 있었음)
+아래는 결과값
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6260000&_type=JSON
+
+Item(uprCd=6260000, orgCd=3360000, orgdownNm=강서구), 
+Item(uprCd=6260000, orgCd=3350000, orgdownNm=금정구), 
+Item(uprCd=6260000, orgCd=3400000, orgdownNm=기장군), 
+Item(uprCd=6260000, orgCd=3310000, orgdownNm=남구), 
+Item(uprCd=6260000, orgCd=3270000, orgdownNm=동구), 
+Item(uprCd=6260000, orgCd=3300000, orgdownNm=동래구), 
+Item(uprCd=6260000, orgCd=3290000, orgdownNm=부산진구), 
+Item(uprCd=6260000, orgCd=3320000, orgdownNm=북구), 
+Item(uprCd=6260000, orgCd=3390000, orgdownNm=사상구), 
+Item(uprCd=6260000, orgCd=3340000, orgdownNm=사하구), 
+Item(uprCd=6260000, orgCd=3260000, orgdownNm=서구), 
+Item(uprCd=6260000, orgCd=3380000, orgdownNm=수영구), 
+Item(uprCd=6260000, orgCd=3370000, orgdownNm=연제구), 
+Item(uprCd=6260000, orgCd=3280000, orgdownNm=영도구), 
+Item(uprCd=6260000, orgCd=3250000, orgdownNm=중구), 
+Item(uprCd=6260000, orgCd=3330000, orgdownNm=해운대구)
+
+
+
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6270000&_type=JSON
+
+Item(uprCd=6270000, orgCd=3440000, orgdownNm=남구), 
+Item(uprCd=6270000, orgCd=3470000, orgdownNm=달서구), 
+Item(uprCd=6270000, orgCd=3480000, orgdownNm=달성군), 
+Item(uprCd=6270000, orgCd=3420000, orgdownNm=동구), 
+Item(uprCd=6270000, orgCd=3450000, orgdownNm=북구), 
+Item(uprCd=6270000, orgCd=3430000, orgdownNm=서구), 
+Item(uprCd=6270000, orgCd=3460000, orgdownNm=수성구), 
+Item(uprCd=6270000, orgCd=3410000, orgdownNm=중구)
+
+
+
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6280000&_type=JSON
+
+Item(uprCd=6280000, orgCd=3570000, orgdownNm=강화군), 
+Item(uprCd=6280000, orgCd=3550000, orgdownNm=계양구), 
+Item(uprCd=6280000, orgCd=3530000, orgdownNm=남동구), 
+Item(uprCd=6280000, orgCd=3500000, orgdownNm=동구), 
+Item(uprCd=6280000, orgCd=3510500, orgdownNm=미추홀구), 
+Item(uprCd=6280000, orgCd=3540000, orgdownNm=부평구), 
+Item(uprCd=6280000, orgCd=3560000, orgdownNm=서구), 
+Item(uprCd=6280000, orgCd=3520000, orgdownNm=연수구), 
+Item(uprCd=6280000, orgCd=3580000, orgdownNm=옹진군), 
+Item(uprCd=6280000, orgCd=3490000, orgdownNm=중구)
+
+
+
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6290000&_type=JSON
+
+Item(uprCd=6290000, orgCd=3630000, orgdownNm=광산구), 
+Item(uprCd=6290000, orgCd=3610000, orgdownNm=남구), 
+Item(uprCd=6290000, orgCd=3590000, orgdownNm=동구), 
+Item(uprCd=6290000, orgCd=3620000, orgdownNm=북구), 
+Item(uprCd=6290000, orgCd=3600000, orgdownNm=서구)
+
+
+
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6110000&_type=JSON
+
+Item(uprCd=6110000, orgCd=6119999, orgdownNm=가정보호), 
+Item(uprCd=6110000, orgCd=3220000, orgdownNm=강남구), 
+Item(uprCd=6110000, orgCd=3240000, orgdownNm=강동구), 
+Item(uprCd=6110000, orgCd=3080000, orgdownNm=강북구), 
+Item(uprCd=6110000, orgCd=3150000, orgdownNm=강서구), 
+Item(uprCd=6110000, orgCd=3200000, orgdownNm=관악구), 
+Item(uprCd=6110000, orgCd=3040000, orgdownNm=광진구), 
+Item(uprCd=6110000, orgCd=3160000, orgdownNm=구로구), 
+Item(uprCd=6110000, orgCd=3170000, orgdownNm=금천구), 
+Item(uprCd=6110000, orgCd=3100000, orgdownNm=노원구), 
+Item(uprCd=6110000, orgCd=3090000, orgdownNm=도봉구), 
+Item(uprCd=6110000, orgCd=3050000, orgdownNm=동대문구), 
+Item(uprCd=6110000, orgCd=3190000, orgdownNm=동작구), 
+Item(uprCd=6110000, orgCd=3130000, orgdownNm=마포구), 
+Item(uprCd=6110000, orgCd=3120000, orgdownNm=서대문구), 
+Item(uprCd=6110000, orgCd=6119998, orgdownNm=서울특별시), 
+Item(uprCd=6110000, orgCd=3210000, orgdownNm=서초구), 
+Item(uprCd=6110000, orgCd=3030000, orgdownNm=성동구), 
+Item(uprCd=6110000, orgCd=3070000, orgdownNm=성북구), 
+Item(uprCd=6110000, orgCd=3230000, orgdownNm=송파구), 
+Item(uprCd=6110000, orgCd=3140000, orgdownNm=양천구), 
+Item(uprCd=6110000, orgCd=3180000, orgdownNm=영등포구), 
+Item(uprCd=6110000, orgCd=3020000, orgdownNm=용산구), 
+Item(uprCd=6110000, orgCd=3110000, orgdownNm=은평구), 
+Item(uprCd=6110000, orgCd=3000000, orgdownNm=종로구), 
+Item(uprCd=6110000, orgCd=3010000, orgdownNm=중구), 
+Item(uprCd=6110000, orgCd=3060000, orgdownNm=중랑구)
+
+
+
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6300000&_type=JSON
+
+Item(uprCd=6300000, orgCd=3680000, orgdownNm=대덕구), 
+Item(uprCd=6300000, orgCd=3640000, orgdownNm=동구), 
+Item(uprCd=6300000, orgCd=3660000, orgdownNm=서구), 
+Item(uprCd=6300000, orgCd=3670000, orgdownNm=유성구), 
+Item(uprCd=6300000, orgCd=3650000, orgdownNm=중구)
+
+
+
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6310000&_type=JSON
+
+Item(uprCd=6310000, orgCd=3700000, orgdownNm=남구), 
+Item(uprCd=6310000, orgCd=3710000, orgdownNm=동구), 
+Item(uprCd=6310000, orgCd=3720000, orgdownNm=북구), 
+Item(uprCd=6310000, orgCd=3730000, orgdownNm=울주군), 
+Item(uprCd=6310000, orgCd=3690000, orgdownNm=중구)
+
+
+
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6410000&_type=JSON
+
+Item(uprCd=6410000, orgCd=4160000, orgdownNm=가평군), 
+Item(uprCd=6410000, orgCd=3940000, orgdownNm=고양시), 
+Item(uprCd=6410000, orgCd=3970000, orgdownNm=과천 시), 
+Item(uprCd=6410000, orgCd=3900000, orgdownNm=광명시), 
+Item(uprCd=6410000, orgCd=5540000, orgdownNm=광주시), 
+Item(uprCd=6410000, orgCd=3980000, orgdownNm=구리시), 
+Item(uprCd=6410000, orgCd=4020000, orgdownNm=군포시), 
+Item(uprCd=6410000, orgCd=4090000, orgdownNm=김포시), 
+Item(uprCd=6410000, orgCd=3990000, orgdownNm=남양주시), 
+Item(uprCd=6410000, orgCd=3920000, orgdownNm=동두천시), 
+Item(uprCd=6410000, orgCd=3860000, orgdownNm=부천시), 
+Item(uprCd=6410000, orgCd=3780000, orgdownNm=성남시), 
+Item(uprCd=6410000, orgCd=3740000, orgdownNm=수원시), 
+Item(uprCd=6410000, orgCd=4010000, orgdownNm=시흥시), 
+Item(uprCd=6410000, orgCd=3930000, orgdownNm=안산시), 
+Item(uprCd=6410000, orgCd=4080000, orgdownNm=안성시), 
+Item(uprCd=6410000, orgCd=3830000, orgdownNm=안양시), 
+Item(uprCd=6410000, orgCd=5590000, orgdownNm=양주시), 
+Item(uprCd=6410000, orgCd=4170000, orgdownNm=양평군), 
+Item(uprCd=6410000, orgCd=5700000, orgdownNm=여주시), 
+Item(uprCd=6410000, orgCd=4140000, orgdownNm=연천군), 
+Item(uprCd=6410000, orgCd=4000000, orgdownNm=오산시), 
+Item(uprCd=6410000, orgCd=4050000, orgdownNm=용인시), 
+Item(uprCd=6410000, orgCd=5630000, orgdownNm=용인시 기흥구), 
+Item(uprCd=6410000, orgCd=4030000, orgdownNm=의왕시), 
+Item(uprCd=6410000, orgCd=3820000, orgdownNm=의정부시), 
+Item(uprCd=6410000, orgCd=4070000, orgdownNm=이천시), 
+Item(uprCd=6410000, orgCd=4060000, orgdownNm=파주시), 
+Item(uprCd=6410000, orgCd=3910000, orgdownNm=평택시), 
+Item(uprCd=6410000, orgCd=5600000, orgdownNm=포천시), 
+Item(uprCd=6410000, orgCd=4040000, orgdownNm=하남시), 
+Item(uprCd=6410000, orgCd=5530000, orgdownNm=화성시)
+
+
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6420000&_type=JSON
+
+Item(uprCd=6420000, orgCd=4200000, orgdownNm=강릉시), 
+Item(uprCd=6420000, orgCd=4340000, orgdownNm=고성군), 
+Item(uprCd=6420000, orgCd=4210000, orgdownNm=동해 시), 
+Item(uprCd=6420000, orgCd=4240000, orgdownNm=삼척시), 
+Item(uprCd=6420000, orgCd=4230000, orgdownNm=속초시), 
+Item(uprCd=6420000, orgCd=4320000, orgdownNm=양구군), 
+Item(uprCd=6420000, orgCd=4350000, orgdownNm=양양군), 
+Item(uprCd=6420000, orgCd=4270000, orgdownNm=영월군), 
+Item(uprCd=6420000, orgCd=4190000, orgdownNm=원주시), 
+Item(uprCd=6420000, orgCd=4330000, orgdownNm=인제군), 
+Item(uprCd=6420000, orgCd=4290000, orgdownNm=정선군), 
+Item(uprCd=6420000, orgCd=4300000, orgdownNm=철원군), 
+Item(uprCd=6420000, orgCd=4180000, orgdownNm=춘천시), 
+Item(uprCd=6420000, orgCd=4220000, orgdownNm=태백시), 
+Item(uprCd=6420000, orgCd=4280000, orgdownNm=평창군), 
+Item(uprCd=6420000, orgCd=4250000, orgdownNm=홍천군), 
+Item(uprCd=6420000, orgCd=4310000, orgdownNm=화천군), 
+Item(uprCd=6420000, orgCd=4260000, orgdownNm=횡성군)
+
+
+
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6430000&_type=JSON
+
+Item(uprCd=6430000, orgCd=4460000, orgdownNm=괴산군), 
+Item(uprCd=6430000, orgCd=4480000, orgdownNm=단양군), 
+Item(uprCd=6430000, orgCd=4420000, orgdownNm=보은 군), 
+Item(uprCd=6430000, orgCd=4440000, orgdownNm=영동군), 
+Item(uprCd=6430000, orgCd=4430000, orgdownNm=옥천군), 
+Item(uprCd=6430000, orgCd=4470000, orgdownNm=음성군), 
+Item(uprCd=6430000, orgCd=4400000, orgdownNm=제천시), 
+Item(uprCd=6430000, orgCd=5570000, orgdownNm=증평군), 
+Item(uprCd=6430000, orgCd=4450000, orgdownNm=진천군), 
+Item(uprCd=6430000, orgCd=5710000, orgdownNm=청주시), 
+Item(uprCd=6430000, orgCd=4390000, orgdownNm=충주시)
+
+
+
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6440000&_type=JSON
+
+Item(uprCd=6440000, orgCd=5580000, orgdownNm=계룡시), 
+Item(uprCd=6440000, orgCd=4500000, orgdownNm=공주시), 
+Item(uprCd=6440000, orgCd=4550000, orgdownNm=금산 군), 
+Item(uprCd=6440000, orgCd=4540000, orgdownNm=논산시), 
+Item(uprCd=6440000, orgCd=5680000, orgdownNm=당진시), 
+Item(uprCd=6440000, orgCd=4510000, orgdownNm=보령시), 
+Item(uprCd=6440000, orgCd=4570000, orgdownNm=부여군), 
+Item(uprCd=6440000, orgCd=4530000, orgdownNm=서산시), 
+Item(uprCd=6440000, orgCd=4580000, orgdownNm=서천군), 
+Item(uprCd=6440000, orgCd=4520000, orgdownNm=아산시), 
+Item(uprCd=6440000, orgCd=4560000, orgdownNm=연기군), 
+Item(uprCd=6440000, orgCd=4610000, orgdownNm=예산군), 
+Item(uprCd=6440000, orgCd=4490000, orgdownNm=천안시), 
+Item(uprCd=6440000, orgCd=4590000, orgdownNm=청양군), 
+Item(uprCd=6440000, orgCd=4620000, orgdownNm=태안군), 
+Item(uprCd=6440000, orgCd=4600000, orgdownNm=홍성군)
+
+
+
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6450000&_type=JSON
+
+Item(uprCd=6450000, orgCd=4780000, orgdownNm=고창군), 
+Item(uprCd=6450000, orgCd=4670000, orgdownNm=군산시), 
+Item(uprCd=6450000, orgCd=4710000, orgdownNm=김제 시), 
+Item(uprCd=6450000, orgCd=4700000, orgdownNm=남원시), 
+Item(uprCd=6450000, orgCd=4740000, orgdownNm=무주군), 
+Item(uprCd=6450000, orgCd=4790000, orgdownNm=부안군), 
+Item(uprCd=6450000, orgCd=4770000, orgdownNm=순창군), 
+Item(uprCd=6450000, orgCd=4720000, orgdownNm=완주군), 
+Item(uprCd=6450000, orgCd=4680000, orgdownNm=익산시), 
+Item(uprCd=6450000, orgCd=4760000, orgdownNm=임실군), 
+Item(uprCd=6450000, orgCd=4750000, orgdownNm=장수군), 
+Item(uprCd=6450000, orgCd=4640000, orgdownNm=전주시), 
+Item(uprCd=6450000, orgCd=4690000, orgdownNm=정읍시), 
+Item(uprCd=6450000, orgCd=4730000, orgdownNm=진안군)
+
+
+
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6460000&_type=JSON
+
+Item(uprCd=6460000, orgCd=4920000, orgdownNm=강진군), 
+Item(uprCd=6460000, orgCd=4880000, orgdownNm=고흥군), 
+Item(uprCd=6460000, orgCd=4860000, orgdownNm=곡성 군), 
+Item(uprCd=6460000, orgCd=4840000, orgdownNm=광양시), 
+Item(uprCd=6460000, orgCd=4870000, orgdownNm=구례군), 
+Item(uprCd=6460000, orgCd=4830000, orgdownNm=나주시), 
+Item(uprCd=6460000, orgCd=4850000, orgdownNm=담양군), 
+Item(uprCd=6460000, orgCd=4800000, orgdownNm=목포시), 
+Item(uprCd=6460000, orgCd=4950000, orgdownNm=무안군), 
+Item(uprCd=6460000, orgCd=4890000, orgdownNm=보성군), 
+Item(uprCd=6460000, orgCd=4820000, orgdownNm=순천시), 
+Item(uprCd=6460000, orgCd=5010000, orgdownNm=신안군), 
+Item(uprCd=6460000, orgCd=4810000, orgdownNm=여수시), 
+Item(uprCd=6460000, orgCd=4970000, orgdownNm=영광군), 
+Item(uprCd=6460000, orgCd=4940000, orgdownNm=영군), 
+Item(uprCd=6460000, orgCd=4990000, orgdownNm=완도군), 
+Item(uprCd=6460000, orgCd=4980000, orgdownNm=장성군), 
+Item(uprCd=6460000, orgCd=4910000, orgdownNm=장흥군), 
+Item(uprCd=6460000, orgCd=5000000, orgdownNm=진도군), 
+Item(uprCd=6460000, orgCd=4960000, orgdownNm=함평군), 
+Item(uprCd=6460000, orgCd=4930000, orgdownNm=해남군), 
+Item(uprCd=6460000, orgCd=4900000, orgdownNm=화순군)
+
+
+
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6470000&_type=JSON
+
+Item(uprCd=6470000, orgCd=5130000, orgdownNm=경산시), 
+Item(uprCd=6470000, orgCd=6479998, orgdownNm=경상북도), 
+Item(uprCd=6470000, orgCd=5050000, orgdownNm=경 주시), 
+Item(uprCd=6470000, orgCd=5200000, orgdownNm=고령군), 
+Item(uprCd=6470000, orgCd=5080000, orgdownNm=구미시), 
+Item(uprCd=6470000, orgCd=5140000, orgdownNm=군위군), 
+Item(uprCd=6470000, orgCd=5060000, orgdownNm=김천시), 
+Item(uprCd=6470000, orgCd=5120000, orgdownNm=문경시), 
+Item(uprCd=6470000, orgCd=5240000, orgdownNm=봉화군), 
+Item(uprCd=6470000, orgCd=5110000, orgdownNm=상주시), 
+Item(uprCd=6470000, orgCd=5210000, orgdownNm=성주군), 
+Item(uprCd=6470000, orgCd=5070000, orgdownNm=안동시), 
+Item(uprCd=6470000, orgCd=5180000, orgdownNm=영덕군), 
+Item(uprCd=6470000, orgCd=5170000, orgdownNm=영양군), 
+Item(uprCd=6470000, orgCd=5090000, orgdownNm=영주시), 
+Item(uprCd=6470000, orgCd=5100000, orgdownNm=영천시), 
+Item(uprCd=6470000, orgCd=5230000, orgdownNm=예천군), 
+Item(uprCd=6470000, orgCd=5260000, orgdownNm=울릉군), 
+Item(uprCd=6470000, orgCd=5250000, orgdownNm=울진군), 
+Item(uprCd=6470000, orgCd=5150000, orgdownNm=의성군), 
+Item(uprCd=6470000, orgCd=5190000, orgdownNm=청도군), 
+Item(uprCd=6470000, orgCd=5160000, orgdownNm=청송군), 
+Item(uprCd=6470000, orgCd=5220000, orgdownNm=칠곡군), 
+Item(uprCd=6470000, orgCd=5020000, orgdownNm=포항시)        
+
+
+
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6480000&_type=JSON
+
+Item(uprCd=6480000, orgCd=5370000, orgdownNm=거제시), 
+Item(uprCd=6480000, orgCd=5470000, orgdownNm=거창군), 
+Item(uprCd=6480000, orgCd=6489999, orgdownNm=경상 남도), 
+Item(uprCd=6480000, orgCd=5420000, orgdownNm=고성군), 
+Item(uprCd=6480000, orgCd=5350000, orgdownNm=김해시), 
+Item(uprCd=6480000, orgCd=5430000, orgdownNm=남해군), 
+Item(uprCd=6480000, orgCd=5360000, orgdownNm=밀양시), 
+Item(uprCd=6480000, orgCd=5340000, orgdownNm=사천시), 
+Item(uprCd=6480000, orgCd=5450000, orgdownNm=산청군), 
+Item(uprCd=6480000, orgCd=5380000, orgdownNm=양산시), 
+Item(uprCd=6480000, orgCd=5390000, orgdownNm=의령군), 
+Item(uprCd=6480000, orgCd=5310000, orgdownNm=진주시), 
+Item(uprCd=6480000, orgCd=5410000, orgdownNm=창녕군), 
+Item(uprCd=6480000, orgCd=5280000, orgdownNm=창원 마산합포회원구), 
+Item(uprCd=6480000, orgCd=5670000, orgdownNm=창원 의창성산구), 
+Item(uprCd=6480000, orgCd=5320000, orgdownNm=창원 진해구), 
+Item(uprCd=6480000, orgCd=5330000, orgdownNm=통영시), 
+Item(uprCd=6480000, orgCd=5440000, orgdownNm=하동군), 
+Item(uprCd=6480000, orgCd=5400000, orgdownNm=함안군), 
+Item(uprCd=6480000, orgCd=5460000, orgdownNm=함양군), 
+Item(uprCd=6480000, orgCd=5480000, orgdownNm=합천군)
+
+
+
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=6500000&_type=JSON
+
+Item(uprCd=6500000, orgCd=6520000, orgdownNm=서귀포시), 
+Item(uprCd=6500000, orgCd=6510000, orgdownNm=제주시), 
+Item(uprCd=6500000, orgCd=6500000, orgdownNm=제 주특별자치도)
+
+
+//이것만 어케 하면 될것같은데...
+http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=jDqHGG%2BaNG47ijh6s3XzB%2BuF8fJOeovccnw%2FZtc9wLQUaKJumPo%2Frl1a2ygZ68dv9L0PD7drvpjPAeTnnB9f%2FQ%3D%3D&upr_cd=5690000&_type=JSON
+ull))))       
+
+java.lang.NullPointerException
+        at site.metacoding.animalprojectbackend.service.api.TestService.테스트(TestService.java:60)
+        at site.metacoding.animalprojectbackend.service.api.TestService$$FastClassBySpringCGLIB$$7bb32c37.invoke(<generated>)
+        at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+        at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:783)
+        at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+        at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:753)
+        at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:123)
+        at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:388)      
+        at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119)
+        at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+        at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:753)
+        at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:698)
+        at site.metacoding.animalprojectbackend.service.api.TestService$$EnhancerBySpringCGLIB$$aa6a7148.테스트(<generated>)
+        at site.metacoding.animalprojectbackend.web.animalapi.SigunguController.test(SigunguController.java:164)
+        at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+        at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+        at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+        at java.base/java.lang.reflect.Method.invoke(Method.java:566)   
+        at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)
+        at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150)
+        at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)
+        at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+        at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)
+        at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+        at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067)
+        at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963)
+        at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+        at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+        at javax.servlet.http.HttpServlet.service(HttpServlet.java:655) 
+        at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+        at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) 
+        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+        at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+        at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+        at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+        at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+        at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+        at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+        at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+        at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
+        at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+        at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+        at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+        at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+        at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+        at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360)
+        at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+        at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+        at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:889)
+        at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1743)
+        at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+        at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+        at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+        at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+        at java.base/java.lang.Thread.run(Thread.java:834)
